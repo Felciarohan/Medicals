@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Emergency Healthcare System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .nav-links a {
+        display: block;
+        padding: 10px;
+    }
+    
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px; 
+    }
+    .nav-links a {
+        display: block;
+        padding: 10px;
+    }
+    .navbar .btn {
+        margin-top: 10px; 
+    }
+}
+        .navbar a {
+            text-decoration: none;
+            margin-right: 20px;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ff4757;
+        }
+        .navbar .btn {
+            background: red;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .navbar .btn:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+            color: #f5f5f5;
+        }
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 100px;
+        }
+        .content-left {
+            width: 50%;
+        }
+        .content-left h1 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .content-left h1 span {
+            color: blue;
+        }
+        .content-left p {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background: red;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background: #ff4757;
+            transform: scale(1.1);
+        }
+        .btn-secondary {
+            margin-left: 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .btn-secondary:hover {
+            border-color: #ff4757;
+        }
+        .right-image img {
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .right-image img:hover {
+            transform: scale(1.05);
+        }
+        #main-container {
+            max-width: 1200px;
+            height:600px;
+            margin: auto;
+            margin-top: 250px;
+        }
+        #main-text {
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            
+        }
+        .feature-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .feature-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+        .feature-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .feature-title {
+            color: red;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .content-left {
+        width: 100%;
+    }
+    .right-image img {
+        width: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar div {
+        margin-top: 10px;
+    }
+    .content-left h1 {
+        font-size: 35px;
+    }
+    .right-image img {
+        width: 350px;
+    }
+    .feature-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .content {
+        margin-top: 50px;
+    }
+    .content-left h1 {
+        font-size: 30px;
+    }
+    .right-image img {
+        width: 300px;
+    }
+    .feature-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #main-container {
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar h2 {
+        font-size: 20px;
+    }
+    .navbar a {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .content-left h1 {
+        font-size: 25px;
+    }
+    .right-image img {
+        width: 250px;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .feature-box {
+        padding: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <div class="navbar">
+            <h2 style="color: #333;"><span style="color: blue;">&#9825;</span> SAVELIFE</h2>
+            <div>
+                <a href="Home.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="blood.html">Blood Bank</a>
+                <a href="emergency.html" class="btn">Emergency</a>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="content-left">
+                <p>AI-POWERED HEALTHCARE</p>
+                <h1>SMART EMERGENCY <span>HEALTHCARE</span> SYSTEM</h1>
+                <p>Revolutionizing emergency response with AI-driven real-time solutions. Get immediate assistance, monitor vitals, and connect with healthcare provider all in one platform.</p>
+                <div class="buttons">
+                    <a href="#" class="btn-primary">&#128680; Emergency Assistance</a>
+                    <a href="#" class="btn-secondary">Explore Services</a>
+                </div>
+            </div>
+            <div class="right-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS288JXL50P_WUfdidX7dnewgd-fcQOAOn_Nw&s" alt="Emergency Healthcare">
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <center><p id="main-text">
+            Our comprehensive system combines cutting-edge AI technology with healthcare expertise 
+            to provide fast, accurate emergency response solutions
+        </p></center>
+
+        <div class="feature-section">
+            <div id="box1" class="feature-box">
+                <h3 class="feature-title">Patient Identification</h3>
+                <p>Rapidly identify patients through unique IDs, biometrics, or location data to access critical medical history.</p>
+            </div>
+            <div id="box2" class="feature-box">
+                <h3 class="feature-title">AI Decision Support</h3>
+                <p>Real-time AI-driven treatment recommendations based on patient data and emergency parameters.</p>
+            </div>
+            <div id="box3" class="feature-box">
+                <h3 class="feature-title">Hospital Integration</h3>
+                <p>Seamless communication between emergency responders and receiving hospitals for advanced preparation.</p>
+            </div>
+            <div id="box4" class="feature-box">
+                <h3 class="feature-title">One-Tap Emergency</h3>
+                <p>Simple interface to call for emergency assistance while automatically sharing relevant information.</p>
+            </div>
+            <div id="box5" class="feature-box">
+                <h3 class="feature-title">Blood Management</h3>
+                <p>Coordinates emergency blood donation and distribution based on location and compatibility.</p>
+            </div>
+            <div id="box6" class="feature-box">
+                <h3 class="feature-title">AI Medical Chatbot</h3>
+                <p>Offers preliminary medical guidance to patients or bystanders while awaiting professional help.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

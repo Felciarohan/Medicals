@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+    
+        }
+
+        .container {
+            display: flex;
+            width: 700px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-section {
+            flex: 1;
+            background: url('https://media.istockphoto.com/id/1291853171/photo/levitating-stethoscope-on-blue-background-and-shadow-under-it-stock-photo.jpg?s=612x612&w=0&k=20&c=Xt8Qbn7t5f_SO83mpyoEKBfdEJlcQNaEoXKBT9gb2lQ=') no-repeat center center/cover;
+        }
+
+        .form-section {
+            flex: 1;
+            background: ghostwhite;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-section h2 {
+            color:black;
+            margin-bottom: 10px;
+        }
+
+        .form-section p {
+            color:black;
+            margin-bottom: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .button {
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .signin-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .signup-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .button:hover {
+            opacity: 0.8;
+        }
+
+    
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image-section"></div>
+        <div class="form-section">
+            <h2>LOGIN</h2>
+            <p>Please sign in or sign up to continue</p>
+
+            <button class="button signin-btn"><a href="signin.html">Sign In</a></button>
+            <button class="button signup-btn"><a href="signup.html">Sign Up</a></button>
+
+        
+        </div>
+    </div>
+</body>
+</html>
