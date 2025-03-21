@@ -15,6 +15,7 @@
     }
     .container1 {
         max-width: 1200px;
+      
         margin: auto;
         padding: 20px;
     }
@@ -394,6 +395,76 @@ body {
     background-color: white;
     color: #009ee3;
 }
+/* General Popup Styling */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup Content */
+.popup-content {
+    background: #fff;
+    padding: 30px;
+    width: 420px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #dc3545;
+}
+
+/* Heading Styling */
+.popup-content h1 {
+    color: #dc3545; /* Red color for emergency */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Instructions Styling */
+.popup-content h4 {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Bullet Points */
+.popup-content h4::before {
+    content: "⚠ "; /* Warning symbol before text */
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.popup-content h4 br {
+    display: block;
+    margin-bottom: 5px;
+}
 </style>
 <body>
     <div class="container1">
@@ -430,26 +501,38 @@ body {
     </div>
 
     <!-- Emergency Assistance Popup -->
-    <div id="emergency-popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <h2>⚠ EMERGENCY ASSISTANCE</h2>
-            <p class="subtitle">REQUEST IMMEDIATE EMERGENCY MEDICAL ASSISTANCE</p>
-            <p class="subtitle">1.Location Sharing
-                Your current location will be shared with emergency responders for fast assistance.<br>
-                
-               2. Medical Information
-                Your saved medical details and emergency contacts will be shared with paramedics.<br>
-                
-                3.AI-Driven Guidance
-                You'll receive AI-based first aid instructions while waiting for help to arrive.
-                
-                </p>
-            <button class="request-btn">📞 REQUEST EMERGENCY HELP</button>
-            <p class="note">For immediate life-threatening emergencies, please call 911.</p>
-            
-        </div>
+    <!-- Emergency Assistance Popup -->
+<div id="emergency-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>⚠ EMERGENCY ASSISTANCE</h2>
+        <p class="subtitle">REQUEST IMMEDIATE EMERGENCY MEDICAL ASSISTANCE</p>
+        <p class="subtitle">
+            1. Location Sharing: Your current location will be shared with emergency responders.<br>
+            2. Medical Information: Your saved medical details and emergency contacts will be shared.<br>
+            3. AI-Driven Guidance: You'll receive AI-based first aid instructions while waiting.
+        </p>
+        <button class="request-btn">📞 REQUEST EMERGENCY HELP</button>
+        <p class="note">For immediate life-threatening emergencies, please call 911.</p>
     </div>
+</div>
+
+<!-- Second Popup for Request Emergency Help -->
+<div id="help-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h1>
+            Help is on the way!<br></h1><h4>
+Emergency services have been notified and responders are en route to your location. Stay calm and follow any instructions provided.
+<br><br>
+What to do while waiting:<br><br>
+• Stay on the line with emergency services possible<br>
+• Unlock your door if you're able and it's safe to do <br>
+• Gather relevant medical information to savelife<br>
+• If possible,have someone wait outside to guide responders<br>
+        </h4>
+    </div>
+</div>
     <h1 class="header">How our<span class="highlight"> Emergency System Works</span></h1>
     <p class="description">Our AI-powered emergency system is designed to provide immediate assistance and coordination during critical situations</p>
     <div class="services-container">
@@ -515,12 +598,48 @@ body {
         </div>
     
     <script>
-        const popup = document.getElementById("emergency-popup");
+    document.addEventListener("DOMContentLoaded", function () {
+        const emergencyPopup = document.getElementById("emergency-popup");
+        const helpPopup = document.getElementById("help-popup");
         const emergencyBtn = document.querySelector(".emergency-btn");
-        const closeBtn = document.querySelector(".close-btn");
+        const requestBtn = document.querySelector(".request-btn");
+        const closeBtns = document.querySelectorAll(".close-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
 
-        emergencyBtn.addEventListener("click", () => { popup.style.display = "flex"; });
-        closeBtn.addEventListener("click", () => { popup.style.display = "none"; });
-    </script>
+        // Open first popup when clicking "Emergency Assistance"
+        emergencyBtn.addEventListener("click", function () {
+            emergencyPopup.style.display = "flex";
+        });
+
+        // Open second popup when clicking "Request Emergency Help"
+        requestBtn.addEventListener("click", function () {
+            emergencyPopup.style.display = "none"; // Close first popup
+            helpPopup.style.display = "flex"; // Show second popup
+        });
+
+        // Close popups when clicking the close button
+        closeBtns.forEach(btn => {
+            btn.addEventListener("click", function () {
+                emergencyPopup.style.display = "none";
+                helpPopup.style.display = "none";
+            });
+        });
+
+        // Close second popup when clicking cancel
+        cancelBtn.addEventListener("click", function () {
+            helpPopup.style.display = "none";
+        });
+
+        // Close popups when clicking outside
+        [emergencyPopup, helpPopup].forEach(popup => {
+            popup.addEventListener("click", function (event) {
+                if (event.target === popup) {
+                    popup.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
